@@ -6,7 +6,7 @@ I18n.config.available_locales = nil
 require 'redmine'
 
 # Load the secret token from the Redmine configuration file
-secret = Redmine::Configuration['secret_token']
+secret = ENV.fetch 'REDMINE_SECRET_TOKEN', Redmine::Configuration['secret_token']
 if secret.present?
   RedmineApp::Application.config.secret_token = secret
 end

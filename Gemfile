@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '2.3.3'
+
+if ENV.has_key?("IMMUNIO_AGENT_DIR")
+  gem 'immunio', :path => ENV['IMMUNIO_AGENT_DIR']
+else
+  gem 'immunio'
+end
+
 if Gem::Version.new(Bundler::VERSION) < Gem::Version.new('1.5.0')
   abort "Redmine requires Bundler 1.5.0 or higher (you're using #{Bundler::VERSION}).\nPlease update with 'gem update bundler'."
 end
@@ -40,7 +48,7 @@ end
 platforms :mri, :mingw, :x64_mingw do
   # Optional gem for exporting the gantt to a PNG file, not supported with jruby
   group :rmagick do
-    gem "rmagick", ">= 2.14.0"
+    # gem "rmagick", ">= 2.14.0"
   end
 
   # Optional Markdown support, not for JRuby

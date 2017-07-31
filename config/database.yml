@@ -1,7 +1,18 @@
-development:
+defaults: &defaults
   adapter: mysql2
   database: redmine
-  host: localhost
+  host: 127.0.0.1
   username: root
-  password: ''
+  password: root
   encoding: utf8
+
+development:
+  <<: *defaults
+  database: redmine_development
+
+test:
+  <<: *defaults
+  database: redmine_test
+
+production:
+  <<: *defaults

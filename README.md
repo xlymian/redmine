@@ -4,20 +4,32 @@ Redmine is a flexible project management web application written using Ruby on R
 
 More details can be found in the doc directory or on the official website http://www.redmine.org
 
-## Running in Vagrant/VMWare-fusion
+## Running with `docker-compose`
 
+First, in a shell, start `mysql-server`:
+
+```bash
+docker-compose up
 ```
-cd /vagrant
-bundle
-bundle exec rake db:create
-bundle exec rake db:migrate
 
-export REDMINE_SECRET_TOKEN='012345678901234567890123456789012345678901234567890123456789'
+In another shell window,
+
+```bash
+export RBENV_VERSION=2.3.3 # if using rbenv to set ruby version
+export RACK_ENV=production
 export IMMUNIO_HELLO_URL=https://agent-stg.immun.io
+export IMMUNIO_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+export IMMUNIO_SECRET=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 export IMMUNIO_LOG_LEVEL=debug
 export IMMUNIO_CODE_PROTECTION_PLUGINS_ENABLED=true
-export IMMUNIO_KEY=xxxxxxxxxxxxxxxxxxxxxxxx
-export IMMUNIO_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export IMMUNIO_AGENT_VERSION=1.1.15
 
-bundle exec rails s -b 192.168.84.xxx
+bundle
+bundle exec rake db:create db:migrate
+
+# Clear logs
+bundle exec rake log:clear
+> log/immunio.log
+
+bundle exec rails s
 ```

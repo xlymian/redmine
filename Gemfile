@@ -5,7 +5,7 @@ ruby '2.3.3'
 if ENV.has_key?("IMMUNIO_AGENT_DIR")
   gem 'immunio', :path => ENV['IMMUNIO_AGENT_DIR']
 else
-  gem 'immunio'
+  gem 'immunio', ENV['IMMUNIO_AGENT_VERSION']
 end
 
 if Gem::Version.new(Bundler::VERSION) < Gem::Version.new('1.5.0')

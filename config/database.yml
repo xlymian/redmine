@@ -1,18 +1,22 @@
-defaults: &defaults
-  adapter: mysql2
-  database: redmine
-  host: 127.0.0.1
-  username: root
-  password: root
-  encoding: utf8
+default: &defaults
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
 
 development:
   <<: *defaults
+  host: 0.0.0.0
+  user: redmine
+  password: redmine
   database: redmine_development
 
 test:
   <<: *defaults
-  database: redmine_test
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/test.sqlite3
 
-production:
-  <<: *defaults
+

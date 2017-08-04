@@ -1,5 +1,6 @@
 # Loads the core plugins located in lib/plugins
 Dir.glob(File.join(Rails.root, "lib/plugins/*")).sort.each do |directory|
+  next if directory =~ /open_id_authentication/
   if File.directory?(directory)
     lib = File.join(directory, "lib")
     if File.directory?(lib)

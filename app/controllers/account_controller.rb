@@ -24,6 +24,8 @@ class AccountController < ApplicationController
   # prevents login action to be filtered by check_if_login_required application scope filter
   skip_before_action :check_if_login_required, :check_password_change
 
+  def using_open_id? ; false ; end
+
   # Overrides ApplicationController#verify_authenticity_token to disable
   # token verification on openid callbacks
   def verify_authenticity_token

@@ -5,7 +5,7 @@ ruby '2.3.3'
 if ENV.has_key?("IMMUNIO_AGENT_DIR")
   gem 'immunio', :path => ENV['IMMUNIO_AGENT_DIR']
 else
-  # gem 'immunio', ENV['IMMUNIO_AGENT_VERSION']
+  gem 'immunio', ENV['IMMUNIO_AGENT_VERSION']
 end
 
 gem 'puma'

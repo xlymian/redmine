@@ -83,13 +83,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    fn = '/usr/share/zoneinfo/America/Bogota'
-    File.open(fn, 'rb') do |f|
-      p '+' * 80
-      p 'This should fire the file_io hooks and raise an attack'
-      p '+' * 80
-    end
-
     @user = User.new(:language => Setting.default_language, :mail_notification => Setting.default_notification_option)
     @user.safe_attributes = params[:user]
     @auth_sources = AuthSource.all

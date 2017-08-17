@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://gem.fury.io/immunio/
   specs:
     actionmailer (4.2.8)
       actionpack (= 4.2.8)
@@ -201,7 +200,7 @@ DEPENDENCIES
   dotenv-rails
   foreman
   i18n (~> 0.7.0)
-  immunio (~> 1.2.1)!
+  immunio
   jquery-rails (~> 3.1.4)
   mime-types (~> 3.0)
   mimemagic

@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://gem.fury.io/immunio/
   specs:
     actionmailer (4.2.8)
       actionpack (= 4.2.8)
@@ -63,7 +64,7 @@ GEM
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
     erubis (2.7.0)
-    faraday (0.12.2)
+    faraday (0.13.0)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
@@ -74,7 +75,7 @@ GEM
       activesupport (>= 4.2.0)
     htmlentities (4.3.4)
     i18n (0.7.0)
-    immunio (1.1.19)
+    immunio (1.2.1)
       binding_of_caller (~> 0.7)
       faraday (~> 0.8)
       faraday_middleware (~> 0.9)
@@ -200,7 +201,7 @@ DEPENDENCIES
   dotenv-rails
   foreman
   i18n (~> 0.7.0)
-  immunio
+  immunio (~> 1.2.1)!
   jquery-rails (~> 3.1.4)
   mime-types (~> 3.0)
   mimemagic
